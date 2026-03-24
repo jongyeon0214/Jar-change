@@ -9,8 +9,20 @@
 3. **Transfer (SCP)**: 빌드된 파일을 SSH 프로토콜로 서버에 전송
 4. **Automation (Shell Script)**: inotify-tools를 활용해 파일 변경 감지 및 자동 재배포 실행
 
-
-
+```text
+   Windows 11
+        │  ./deploy.sh (Git Bash)
+        │  1. Gradle 빌드 → jar 생성
+        │  2. SCP로 Linux 서버 전송
+        ▼
+     Ubuntu 
+        │  deploy.sh (inotify-tools)
+        │  3. jar 파일 변경 감지
+        │  4. 중복 포트 점유 프로세스 강제 종료 (포트 충돌 방지)
+        │  5. 최신 빌드 파일(jar) 자동 실행
+        ▼
+  최신 버전 서비스
+```
 ## 🛠️ 주요 설정 상세
 
 ### 1. VirtualBox 포트 포워딩 (SSH 연결)
